@@ -1,0 +1,41 @@
+@import "../node_modules/normalize.css/normalize.css";
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: center;
+  gap: 1em;
+  padding: 1em;
+  background: lightgray;
+}
+.header__logo {
+  font-size: 2rem;
+  font-weight: 900;
+  text-align: center;
+}
+.header__label {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.5em;
+}
+.header__base-color {
+  padding: 0;
+  width: 100%;
+}
+.header__colorschemes {
+  padding: 0.5em;
+}
+
+.btn {
+  padding: 0.5em;
+  font-weight: 900;
+}
+
+* {
+  /* outline: 1px dashed red; */
+}
+
+/*# sourceMappingURL=style.css.map */

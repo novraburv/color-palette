@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="./index.js"></script>
+    <link rel="stylesheet" href="./dist/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="header">
+        <h1 class="header__logo">COLOR PALETTE</h1>
+        <label class="header__label" for="base-color">
+          <span>Base color:</span>
+          <input
+            id="base-color"
+            class="header__base-color"
+            type="color"
+            name="base-color"
+          />
+        </label>
+        <label class="header__label" for="colorschemes">
+          <span>Colorscheme:</span>
+          <select
+            id="colorschemes"
+            class="header__colorschemes"
+            name="colorschemes"
+          >
+            <option value="monochromatic" selected>monochromatic</option>
+            <option value="analogous">analogous</option>
+            <option value="complementary">complementary</option>
+            <option value="split-complementary">split-complementary</option>
+            <option value="tetradic-square">tetradic-square</option>
+            <option value="tetradic-rectangle">tetradic-rectangle</option>
+          </select>
+        </label>
+        <button id="generate-color" class="btn">Generate</button>
+      </header>
+      <!-- main is a container of our generated colors -->
+      <main class="main"></main>
+    </div>
+  </body>
+</html>
