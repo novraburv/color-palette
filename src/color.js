@@ -6,7 +6,7 @@ const Color = (() => {
 export default Color
 
 const Convert = (() => {
-  return { hex2rgb, rgb2hsl, hsl2rgb }
+  return { hex2rgb, rgb2hex, rgb2hsl, hsl2rgb }
 })()
 
 function hex2rgb (hex) {
@@ -15,6 +15,15 @@ function hex2rgb (hex) {
 
   return hex.match(/[0-9a-f]{2}/ig)
     .map(xx => parseInt(xx, 16))
+}
+
+function rgb2hex (r, g, b) {
+  if ([r, g, b].some(n => typeof n !== 'number')) return 'type error'
+  if ([r, g, b].some(n => n < 0 || n > 255)) return 'out-of-range'
+
+  return Array.from(arguments).map(xx => xx.toString(16))
+    .map(xx => xx.lenght === 1 ? '0' + xx : xx)
+    .join('')
 }
 
 function rgb2hsl (r, g, b) {
@@ -68,6 +77,5 @@ function hsl2rgb (h, s, l) {
     if (h >= 300 && h < 360) return [C, 0, X]
   }
 
-  const rgb = getTemporaryRGB().map(color => (color + m) * 255)
-  return rgb
+  return getTemporaryRGB().map(color => (color + m) * 255)
 }
