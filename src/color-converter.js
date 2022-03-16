@@ -1,15 +1,4 @@
-const Color = (() => {
-  const convert = Convert
-  return { convert }
-})()
-
-export default Color
-
-const Convert = (() => {
-  return { hex2rgb, rgb2hex, rgb2hsl, hsl2rgb }
-})()
-
-function hex2rgb (hex) {
+export function hex2rgb (hex) {
   if (hex.length !== 6) return 'hex must be 6 digits'
   if (hex.match(/[^0-9a-f]/i)) return 'unknown characters'
 
@@ -17,16 +6,16 @@ function hex2rgb (hex) {
     .map(xx => parseInt(xx, 16))
 }
 
-function rgb2hex (r, g, b) {
+export function rgb2hex (r, g, b) {
   if ([r, g, b].some(n => typeof n !== 'number')) return 'type error'
   if ([r, g, b].some(n => n < 0 || n > 255)) return 'out-of-range'
 
   return Array.from(arguments).map(xx => xx.toString(16))
-    .map(xx => xx.lenght === 1 ? '0' + xx : xx)
+    .map(xx => xx.length === 1 ? '0' + xx : xx)
     .join('')
 }
 
-function rgb2hsl (r, g, b) {
+export function rgb2hsl (r, g, b) {
   if ([r, g, b].some(n => typeof n !== 'number')) return 'type error'
   if ([r, g, b].some(n => n < 0 || n > 255)) return 'out-of-range'
 
@@ -58,7 +47,7 @@ function rgb2hsl (r, g, b) {
   return [getHue(), roundedPercent(getSaturation()), roundedPercent(getLightness())]
 }
 
-function hsl2rgb (h, s, l) {
+export function hsl2rgb (h, s, l) {
   if ([h, s, l].some(n => typeof n !== 'number')) return 'type error'
 
   // Saturation and Lightness must be 0 < x < 1
