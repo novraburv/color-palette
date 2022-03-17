@@ -13,7 +13,6 @@ function colorGenerationHandler () {
   const [hue] = rgb2hsl(...hex2rgb(baseColor.slice(1)))
   const colors = generateColor(hue, colorscheme)
 
-  console.log(hue)
   printColors(colors)
 }
 
