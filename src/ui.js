@@ -33,8 +33,7 @@ function createColorCard (color) {
   const card = document.createElement('div')
   card.classList.add('main__color')
   card.style.background = '#' + color
-  card.style.height = '100px'
-  card.style.width = '100px'
+  card.style.height = '100%'
 
   main.append(card)
 }
