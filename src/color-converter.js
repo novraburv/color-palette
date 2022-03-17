@@ -25,14 +25,10 @@ export function rgb2hsl (r, g, b) {
   const delta = Cmax - Cmin
 
   function getHue () {
-    let hue
-
-    if (delta === 0) hue = 0
-    if (Cmax === rx) hue = 60 * ((gx - bx) / delta % 6)
-    if (Cmax === gx) hue = 60 * ((bx - rx) / delta + 2)
-    if (Cmax === bx) hue = 60 * ((rx - gx) / delta + 4)
-
-    return hue < 0 ? hue + 360 : hue
+    if (delta === 0) return 0
+    if (Cmax === rx) return 60 * ((gx - bx) / delta % 6)
+    if (Cmax === gx) return 60 * ((bx - rx) / delta + 2)
+    if (Cmax === bx) return 60 * ((rx - gx) / delta + 4)
   }
 
   function getSaturation () {
@@ -44,7 +40,11 @@ export function rgb2hsl (r, g, b) {
     return (Cmax + Cmin) / 2
   }
 
-  return [Math.round(getHue()), Math.round(getSaturation() * 100), Math.round(getLightness() * 100)]
+  return [
+    Math.round(getHue() < 0 ? getHue() + 360 : getHue()),
+    Math.round(getSaturation() * 100),
+    Math.round(getLightness() * 100)
+  ]
 }
 
 export function hsl2rgb (h, s, l) {
