@@ -28,7 +28,7 @@ function createColorCard (color) {
 
   const text = document.createElement('p')
   text.classList.add('main__text')
-  text.textContent = rgb2hex(...hsl2rgb(...color))
+  text.textContent = '#' + rgb2hex(...hsl2rgb(...color))
   text.style.color = l < 50 ? 'white' : 'black'
 
   card.append(text)
