@@ -1,5 +1,5 @@
 'use strict'
 
-import Color from './src/color.js'
+import { initialize } from './src/ui.js'
 
-console.log(Color.convert.hex2rgb('3fa5f8'))
+initialize()

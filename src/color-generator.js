@@ -17,9 +17,13 @@ export function generateColor (baseHue, colorscheme) {
 
   while (colors.length < 5) {
     const i = Math.floor(Math.random() * variation)
-    const color = schemes[colorscheme][i]
+    const color = baseHue + schemes[colorscheme][i]
     colors.push(color < 0 ? color + 360 : color >= 360 ? color - 360 : color)
   }
 
-  return colors
+  return colors.map(color => [color, random100(), random100()])
+}
+
+function random100 () {
+  return Math.round(Math.random() * 100)
 }
