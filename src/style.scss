@@ -10,28 +10,12 @@
 }
 
 .header {
-  display: flex;
-  flex-flow: column nowrap;
-  align-content: center;
-  gap: 1em;
-  padding: 1em;
-  background: lightgray;
+  background: dimgray;
+  color: white;
   &__logo {
     font-size: 2rem;
     font-weight: 900;
     text-align: center;
-  }
-  &__label {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 0.5em;
-  }
-  &__base-color {
-    padding: 0;
-    width: 100%;
-  }
-  &__colorschemes {
-    @include boxy-element;
   }
 }
 
@@ -52,5 +36,46 @@
     align-items: center;
     text-transform: uppercase;
     font-weight: 900;
+  }
+}
+
+.form {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 1em;
+  background: lightgray;
+  gap: 0.5em;
+  &__label {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.3em;
+  }
+  &__base-color {
+    padding: 0;
+    width: 100%;
+    min-width: 100px;
+  }
+  &__colorschemes {
+    @include boxy-element;
+  }
+}
+
+@media (orientation: landscape) {
+  .main {
+    flex-flow: row nowrap;
+  }
+
+  .form {
+    flex-flow: row nowrap;
+    justify-content: center;
+    &__label {
+      flex-flow: row;
+      & span {
+        display: none;
+      }
+    }
+    &__base-color {
+      height: 100%;
+    }
   }
 }

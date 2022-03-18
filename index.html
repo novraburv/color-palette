@@ -9,20 +9,24 @@
     <div id="app">
       <header class="header">
         <h1 class="header__logo">COLOR PALETTE</h1>
-        <label class="header__label" for="base-color">
+      </header>
+      <!-- main is a container of our generated colors -->
+      <main class="main"></main>
+      <form class="form form-colgen" action="">
+        <label class="form__label" for="base-color">
           <span>Base color:</span>
           <input
             id="base-color"
-            class="header__base-color"
+            class="form__base-color"
             type="color"
             name="base-color"
           />
         </label>
-        <label class="header__label" for="colorschemes">
+        <label class="form__label" for="colorschemes">
           <span>Colorscheme:</span>
           <select
             id="colorschemes"
-            class="header__colorschemes"
+            class="form__colorschemes"
             name="colorschemes"
           >
             <option value="monochromatic" selected>monochromatic</option>
@@ -33,10 +37,8 @@
             <option value="tetradicRectangle">tetradic-rectangle</option>
           </select>
         </label>
-        <button id="generate-color" class="btn">Generate</button>
-      </header>
-      <!-- main is a container of our generated colors -->
-      <main class="main"></main>
+        <button type="submit" "generate-color" class="btn">Generate</button>
+      </form>
     </div>
   </body>
 </html>

@@ -2,11 +2,16 @@ import { hex2rgb, hsl2rgb, rgb2hex, rgb2hsl } from './color-converter.js'
 import { generateColor } from './color-generator.js'
 
 export function initialize () {
-  const generateButton = document.querySelector('#generate-color')
-  generateButton.addEventListener('click', colorGenerationHandler)
+  const colorGeneratorForm = document.querySelector('.form-colgen')
+  colorGeneratorForm.addEventListener('submit', handleSubmit)
 }
 
-function colorGenerationHandler () {
+function handleSubmit (e) {
+  e.preventDefault()
+  startColorsGeneration()
+}
+
+function startColorsGeneration () {
   const baseColor = document.querySelector('#base-color').value
   const colorscheme = document.querySelector('#colorschemes').value
   const main = document.querySelector('.main')
